@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="JobPlannLineTypeCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>JobPlannLineTypeCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>JobPlannLineTypeCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="JobPlannLineDocNoCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>JobPlannLineDocNoCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>JobPlannLineDocNoCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="JobPlannLineNoCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>JobPlannLineNoCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>JobPlannLineNoCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="JobPlannLineDescCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>JobPlannLineDescCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>JobPlannLineDescCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="JobPlannLineQtyCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>JobPlannLineQtyCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>JobPlannLineQtyCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="JobPlannLineUOMCodeCptn">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>JobPlannLineUOMCodeCptn</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>JobPlannLineUOMCodeCptn</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="JobTaskNo_JobTaskCptn">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>JobTaskNo_JobTaskCptn</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>JobTaskNo_JobTaskCptn</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="No_Job">
+          <DataField>No_Job</DataField>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+        </Field>
+        <Field Name="TodayFormatted">
+          <DataField>TodayFormatted</DataField>
+        </Field>
+        <Field Name="JobTaskCaption">
+          <DataField>JobTaskCaption</DataField>
+        </Field>
+        <Field Name="ShowJTFilter">
+          <DataField>ShowJTFilter</DataField>
+        </Field>
+        <Field Name="Desc_Job">
+          <DataField>Desc_Job</DataField>
+        </Field>
+        <Field Name="CurrCodeJob0Fld">
+          <DataField>CurrCodeJob0Fld</DataField>
+        </Field>
+        <Field Name="CurrCodeJob2Fld">
+          <DataField>CurrCodeJob2Fld</DataField>
+        </Field>
+        <Field Name="CurrCodeJob3Fld">
+          <DataField>CurrCodeJob3Fld</DataField>
+        </Field>
+        <Field Name="JobPlanningLinesCaption">
+          <DataField>JobPlanningLinesCaption</DataField>
+        </Field>
+        <Field Name="CurrReportPageNoCaption">
+          <DataField>CurrReportPageNoCaption</DataField>
+        </Field>
+        <Field Name="JobPlannLinePlannDtCptn">
+          <DataField>JobPlannLinePlannDtCptn</DataField>
+        </Field>
+        <Field Name="LineTypeCaption">
+          <DataField>LineTypeCaption</DataField>
+        </Field>
+        <Field Name="JobTaskNo_JobTask">
+          <DataField>JobTaskNo_JobTask</DataField>
+        </Field>
+        <Field Name="Desc_JobTask">
+          <DataField>Desc_JobTask</DataField>
+        </Field>
+        <Field Name="TotalCost1_JobTask">
+          <DataField>TotalCost1_JobTask</DataField>
+        </Field>
+        <Field Name="TotalCost1_JobTaskFormat">
+          <DataField>TotalCost1_JobTaskFormat</DataField>
+        </Field>
+        <Field Name="TotalCost2_JobTask">
+          <DataField>TotalCost2_JobTask</DataField>
+        </Field>
+        <Field Name="TotalCost2_JobTaskFormat">
+          <DataField>TotalCost2_JobTaskFormat</DataField>
+        </Field>
+        <Field Name="FooterTotalCost1_JobTask">
+          <DataField>FooterTotalCost1_JobTask</DataField>
+        </Field>
+        <Field Name="FooterTotalCost1_JobTaskFormat">
+          <DataField>FooterTotalCost1_JobTaskFormat</DataField>
+        </Field>
+        <Field Name="FooterTotalCost2_JobTask">
+          <DataField>FooterTotalCost2_JobTask</DataField>
+        </Field>
+        <Field Name="FooterTotalCost2_JobTaskFormat">
+          <DataField>FooterTotalCost2_JobTaskFormat</DataField>
+        </Field>
+        <Field Name="FooterLineDisAmt1_JobTask">
+          <DataField>FooterLineDisAmt1_JobTask</DataField>
+        </Field>
+        <Field Name="FooterLineDisAmt1_JobTaskFormat">
+          <DataField>FooterLineDisAmt1_JobTaskFormat</DataField>
+        </Field>
+        <Field Name="FooterLineDisAmt2_JobTask">
+          <DataField>FooterLineDisAmt2_JobTask</DataField>
+        </Field>
+        <Field Name="FooterLineDisAmt2_JobTaskFormat">
+          <DataField>FooterLineDisAmt2_JobTaskFormat</DataField>
+        </Field>
+        <Field Name="FooterLineAmt1_JobTask">
+          <DataField>FooterLineAmt1_JobTask</DataField>
+        </Field>
+        <Field Name="FooterLineAmt1_JobTaskFormat">
+          <DataField>FooterLineAmt1_JobTaskFormat</DataField>
+        </Field>
+        <Field Name="FooterLineAmt2_JobTask">
+          <DataField>FooterLineAmt2_JobTask</DataField>
+        </Field>
+        <Field Name="FooterLineAmt2_JobTaskFormat">
+          <DataField>FooterLineAmt2_JobTaskFormat</DataField>
+        </Field>
+        <Field Name="JobTaskNo_JobTaskCaption">
+          <DataField>JobTaskNo_JobTaskCaption</DataField>
+        </Field>
+        <Field Name="TotalScheduleCaption">
+          <DataField>TotalScheduleCaption</DataField>
+        </Field>
+        <Field Name="TotalContractCaption">
+          <DataField>TotalContractCaption</DataField>
+        </Field>
+        <Field Name="TotCostLCY_JobPlanningLine">
+          <DataField>TotCostLCY_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="TotCostLCY_JobPlanningLineFormat">
+          <DataField>TotCostLCY_JobPlanningLineFormat</DataField>
+        </Field>
+        <Field Name="Qty_JobPlanningLine">
+          <DataField>Qty_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="Qty_JobPlanningLineFormat">
+          <DataField>Qty_JobPlanningLineFormat</DataField>
+        </Field>
+        <Field Name="Desc_JobPlanningLine">
+          <DataField>Desc_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="No_JobPlanningLine">
+          <DataField>No_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="Type_JobPlanningLine">
+          <DataField>Type_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="PlannDate_JobPlanningLine">
+          <DataField>PlannDate_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="DocNo_JobPlanningLine">
+          <DataField>DocNo_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="UOMCode_JobPlanningLine">
+          <DataField>UOMCode_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="LineDiscAmLCY_JobPlanningLine">
+          <DataField>LineDiscAmLCY_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="LineDiscAmLCY_JobPlanningLineFormat">
+          <DataField>LineDiscAmLCY_JobPlanningLineFormat</DataField>
+        </Field>
+        <Field Name="AmtLCY_JobPlanningLine">
+          <DataField>AmtLCY_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="AmtLCY_JobPlanningLineFormat">
+          <DataField>AmtLCY_JobPlanningLineFormat</DataField>
+        </Field>
+        <Field Name="LineType_JobPlanningLine">
+          <DataField>LineType_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="FieldLocalCurr_JobPlanningLine">
+          <DataField>FieldLocalCurr_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="TotalCost_JobPlanningLine">
+          <DataField>TotalCost_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="TotalCost_JobPlanningLineFormat">
+          <DataField>TotalCost_JobPlanningLineFormat</DataField>
+        </Field>
+        <Field Name="LineDiscAmt_JobPlanningLine">
+          <DataField>LineDiscAmt_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="LineDiscAmt_JobPlanningLineFormat">
+          <DataField>LineDiscAmt_JobPlanningLineFormat</DataField>
+        </Field>
+        <Field Name="LineAmt_JobPlanningLine">
+          <DataField>LineAmt_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="LineAmt_JobPlanningLineFormat">
+          <DataField>LineAmt_JobPlanningLineFormat</DataField>
+        </Field>
+        <Field Name="ForeignCurr_JobPlanningLine">
+          <DataField>ForeignCurr_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="TotalCost1_JobPlanningLine">
+          <DataField>TotalCost1_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="TotalCost1_JobPlanningLineFormat">
+          <DataField>TotalCost1_JobPlanningLineFormat</DataField>
+        </Field>
+        <Field Name="LineAmt1_JobPlanningLine">
+          <DataField>LineAmt1_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="LineAmt1_JobPlanningLineFormat">
+          <DataField>LineAmt1_JobPlanningLineFormat</DataField>
+        </Field>
+        <Field Name="LineDisAmt1_JobPlanningLine">
+          <DataField>LineDisAmt1_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="LineDisAmt1_JobPlanningLineFormat">
+          <DataField>LineDisAmt1_JobPlanningLineFormat</DataField>
+        </Field>
+        <Field Name="LineAmt2_JobPlanningLine">
+          <DataField>LineAmt2_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="LineAmt2_JobPlanningLineFormat">
+          <DataField>LineAmt2_JobPlanningLineFormat</DataField>
+        </Field>
+        <Field Name="LineDisAmt2_JobPlanningLine">
+          <DataField>LineDisAmt2_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="LineDisAmt2_JobPlanningLineFormat">
+          <DataField>LineDisAmt2_JobPlanningLineFormat</DataField>
+        </Field>
+        <Field Name="TotalCost2_JobPlanningLine">
+          <DataField>TotalCost2_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="TotalCost2_JobPlanningLineFormat">
+          <DataField>TotalCost2_JobPlanningLineFormat</DataField>
+        </Field>
+        <Field Name="JobNo_JobPlanningLine">
+          <DataField>JobNo_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="JobTaskNo_JobPlanningLine">
+          <DataField>JobTaskNo_JobPlanningLine</DataField>
+        </Field>
+        <Field Name="ScheduleCaption">
+          <DataField>ScheduleCaption</DataField>
+        </Field>
+        <Field Name="ContractCaption">
+          <DataField>ContractCaption</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>
